@@ -156,6 +156,11 @@ impl ZipEntry {
     pub fn dir(&self) -> Result<bool> {
         Ok(self.filename.as_str()?.ends_with('/'))
     }
+
+    /// Returns whether the entry uses a data descriptor.
+    pub fn data_descriptor(&self) -> bool {
+        self.data_descriptor
+    }
 }
 
 /// An immutable store of data about how a ZIP entry is stored within a specific archive.
